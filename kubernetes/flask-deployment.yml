@@ -14,6 +14,11 @@ spec:
     spec:
       containers:
         - name: flask
-          image: public.ecr.aws/f7y3w4q3/unianalytics-flask-test:latest
+          image: public.ecr.aws/f7y3w4q3/unianalytics-docker:latest
           ports:
             - containerPort: 5000
+          envFrom:
+            - configMapRef:
+                name: flask-config
+            - secretRef:
+                name: flask-secrets

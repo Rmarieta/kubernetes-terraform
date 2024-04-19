@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: flask-config
+data:
+  LOCAL_DEV: "true"
+  REDIS_MESSAGE_QUEUE_URL: "redis://redis-service:6379"
