@@ -10,15 +10,9 @@ data:
     pid /run/nginx.pid;
 
     events {
-      worker_connections 1024;
+      worker_connections 10000;  # Updated worker_connections
     }
 
     http {
-      server {
-        listen 80;
-
-        location / {
-          proxy_pass http://flask-service:5000;
-        }
-      }
+      include /etc/nginx/conf.d/server.conf;  # Include server blocks from conf.d
     }
